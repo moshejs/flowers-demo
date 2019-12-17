@@ -26,7 +26,6 @@ export const PostListPage = () => {
       return (
         <div id="issue-list-page">
             <PostSearch />
-            <span>Showing {filteredPosts.length} of {postsList.length} results</span>
           {renderedList}
         </div>
       )

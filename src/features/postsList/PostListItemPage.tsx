@@ -1,4 +1,5 @@
 import React from 'react'
+import TextField from '@material-ui/core/TextField';
 
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../app/rootReducer'
@@ -36,7 +37,6 @@ export const PostListItemPage = (props: any) => {
 
       const handleSubmit = (event: any) => {
         event.preventDefault();
-        console.log(values)
         const newPost = Object.assign({},selectedPost);
         if(newPost !== null) {
           if (values.body.length) {
@@ -45,7 +45,6 @@ export const PostListItemPage = (props: any) => {
           if (values.title.length) {
             newPost.title = values.title
           }
-          console.log(newPost)
           dispatch(updatePost(newPost))
           dispatch(filterPosts({ search : '' }))
           history.push("/");
@@ -67,11 +66,11 @@ export const PostListItemPage = (props: any) => {
               <label>UserId: </label>
               <span>{selectedPost.userId}</span>
               <form onSubmit={handleSubmit}>
-                <label>Title: </label>
-                <input type="textarea" defaultValue={selectedPost.title} onChange={(event) =>handleChange('title', event)} />
-                <br />
+
+              <TextField defaultValue={selectedPost.title} onChange={(event: any) =>handleChange('title', event)} label="Title" />
+              <br />
                 <label>Body: </label>
-                <input type="textarea" defaultValue={selectedPost.body} onChange={(event) => handleChange('title', event)} />
+                <TextField defaultValue={selectedPost.body} onChange={(event) => handleChange('title', event)} />
                 <br />
                 <button type="submit">Save</button>  
               </form>

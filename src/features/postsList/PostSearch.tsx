@@ -1,6 +1,6 @@
 import { RootState } from "../../app/rootReducer"
 import { useSelector, useDispatch } from "react-redux"
-import React, { useEffect } from "react"
+import React from "react"
 import { filterPosts } from '../posts/postsSlice'
 
 import AppBar from '@material-ui/core/AppBar';
@@ -19,7 +19,7 @@ export const PostSearch = () => {
     const filterResults = (e: any) => {dispatch(filterPosts({search: e}))}
 
       return (
-        <div id="issue-list-page">
+        <div>
         {!isLoading ?  
         <AppBar position="static">
         <Toolbar>

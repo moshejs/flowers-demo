@@ -9,7 +9,6 @@ import { PostSearch } from './PostSearch'
 export const PostListPage = () => {
 
     const {
-        postsList,
         filteredPosts,
         isLoading,
         error: boolean, // issuesError ??
@@ -24,7 +23,7 @@ export const PostListPage = () => {
       )
 
       return (
-        <div id="issue-list-page">
+        <div>
             <PostSearch />
           {renderedList}
         </div>
